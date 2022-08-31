@@ -17,28 +17,4 @@ class Stack:
     def size(self):
         return len(self.items)
 
-
-def match(string):
-    s = Stack()
-
-    for i in string:
-        if i == "(" or i == "[" or i == "{":
-            s.push(i)
-        else:
-            if s.is_empty():
-                return False
-            top = s.pop()
-            if not check_pair(top, i):
-                return False
-
-    return s.is_empty()
-
-
-def check_pair(open, close):
-    opens = "([{"
-    closes = ")]}"
-    return opens.index(open) == closes.index(close)
-
-
-print(match("({()}[)]"))
-print(match("{{([][])}()}"))
+stack = Stack()
